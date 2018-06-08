@@ -1,16 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
 html, body{
   height: 100%;
   width: 100%;
   overflow-x: hidden;
   margin: 0;
+  font-family: Roboto, sans-serif;
 }
 
-.footer{
-  position:absolute;
+.footer {
+  position: absolute;
   bottom: 0;
-  width:100%;
-
+  width: 100%;
 }
