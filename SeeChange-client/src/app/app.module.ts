@@ -4,10 +4,16 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
