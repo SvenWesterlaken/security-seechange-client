@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/SeeChange-client/src/styles.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,6 +99,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/SeeChange-client/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="219" />
@@ -184,12 +187,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528378526688</updated>
       <workItem from="1528378527892" duration="4550000" />
-      <workItem from="1528449730874" duration="123000" />
+      <workItem from="1528449730874" duration="274000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4673000" />
+    <option name="totallyTimeSpent" value="4824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -202,7 +205,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="219" y="18" width="1449" height="1056" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37562013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -287,7 +289,7 @@
     <entry file="file://$PROJECT_DIR$/SeeChange-client/src/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
