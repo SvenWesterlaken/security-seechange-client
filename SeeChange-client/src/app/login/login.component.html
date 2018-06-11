@@ -1,3 +1,30 @@
-<p>
-  login works!
-</p>
+<div class="loginform">
+<mat-card class="example-card">
+  <!--<mat-card-header>-->
+    <!--<mat-card-title class="autoSpace">Login</mat-card-title>-->
+  <!--</mat-card-header>-->
+  <i id=headerlogo class="fas fa-circle-notch fa-8x autoSpace" routerLink="/streamlist" ></i>
+
+  <mat-card-content class="">
+    <form class="example-form autoSpace">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field >
+              <input matInput placeholder="Username" style="" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width " id="password" >
+            <input matInput  placeholder="Password"  name="password" required>
+          </mat-form-field></td>
+        </tr></table>
+    </form>
+    <mat-progress-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-progress-spinner>
+  </mat-card-content>
+  <mat-card-actions class="autoSpace">
+    <button mat-raised-button  (click)="login()" color="primary">Login</button>
+  </mat-card-actions>
+</mat-card>
+</div>
