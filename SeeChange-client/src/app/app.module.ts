@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {
-  MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbar,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatMenuModule,
+  MatProgressSpinnerModule, MatToolbar,
   MatToolbarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,8 +36,11 @@ import { StreamsComponent } from './streams/streams.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
-
+    HttpModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatInputModule
   ],
   providers: [userLoginService, SessionStorageService],
   bootstrap: [AppComponent]

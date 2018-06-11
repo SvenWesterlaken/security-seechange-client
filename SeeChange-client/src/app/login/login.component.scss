@@ -1,0 +1,44 @@
+//.example-icon {
+//  padding: 0 14px;
+//}
+//
+//.example-spacer {
+//  flex: 1 1 auto;
+//}
+
+.loginform{
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.autoSpace{
+  position: relative;
+  display: block;
+  width: auto;
+  //margin-left: auto;
+  //margin-right: auto;
+  text-align: center;
+}
+
+#headerlogo{
+  margin-bottom: 10%;
+}
+
+#username{
+  width: 100%;
+}
+
+mat-card-content{
+  margin-left: 10%;
+}
+
+#password{
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.formButton{
+  margin-left: auto;
+  margin-right: auto;
+}
