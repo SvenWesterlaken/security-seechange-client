@@ -11,7 +11,7 @@ import {SessionStorageService} from "../services/sessionstorage.service";
 })
 export class LoginComponent implements OnInit {
   loginUserForm: FormGroup;
-
+  errorMsg: String;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
             // this.sessionStorageService.setToken(res.token);
             this.router.navigate(['/streamlist'], {relativeTo: this.route});
         } else {
-
+        this.errorMsg = "Gebruikersnaam of wachtwoord onjuist.";
       }
     });
     // this.sessionStorageService.setUserId(this.loginUserForm.value.name);
