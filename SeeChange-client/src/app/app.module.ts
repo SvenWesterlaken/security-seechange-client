@@ -11,6 +11,11 @@ import {AppRoutingModule} from "./app-routing.module";
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SessionStorageService} from "./services/sessionstorage.service";
+import {userLoginService} from "./services/userlogin.service";
+import {HttpModule} from "@angular/http";
+import { StreamsComponent } from './streams/streams.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
+    StreamsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +32,13 @@ import { FooterComponent } from './footer/footer.component';
     MatCheckboxModule,
     MatToolbarModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
+
   ],
-  providers: [],
+  providers: [userLoginService, SessionStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
