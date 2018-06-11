@@ -9,7 +9,7 @@ import {StreamsComponent} from "./streams/streams.component";
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  {path: 'streams', component: StreamsComponent}
+  {path: 'streamlist', component: StreamsComponent}
 
 ];
 

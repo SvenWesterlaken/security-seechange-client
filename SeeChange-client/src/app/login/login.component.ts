@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           .then((res) => {
 
             // this.sessionStorageService.setToken(res.token);
-            this.router.navigate(['/streams'], {relativeTo: this.route});
+            this.router.navigate(['/streamlist'], {relativeTo: this.route});
           });
       } else {
 
