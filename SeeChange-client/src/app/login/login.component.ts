@@ -25,16 +25,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userLoginService.getUserName(this.loginUserForm.value).then((user) => {
+    this.userLoginService.loginUser(this.loginUserForm.value).then((user) => {
       console.log(user);
-      if(user.isVerified == true){
-        this.userLoginService.loginUser(this.loginUserForm.value)
-          .then((res) => {
-
+      if(user.status != 401 ){
             // this.sessionStorageService.setToken(res.token);
             this.router.navigate(['/streamlist'], {relativeTo: this.route});
-          });
-      } else {
+        } else {
 
       }
     });

@@ -33,7 +33,7 @@
 }
 
 mat-card-content{
-  margin-left: 20%;
+  margin-left: 0%;
 }
 
 #password{
@@ -41,7 +41,12 @@ mat-card-content{
   margin-bottom: 10%;
 }
 
-.formButton{
-  margin-left: auto;
-  margin-right: auto;
+#formbutton{
+text-align: center;
+  }
+
+.gewoonlang{
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

@@ -17,7 +17,7 @@ export class userLoginService {
 
   loginUser(userLoginRegister: Userloginregister) {
     console.log(userLoginRegister);
-    return this.http.post(environment.nodeServerUrl + '/login', userLoginRegister, {headers: this.headers})
+    return this.http.post(environment.nodeServerUrl + 'login', userLoginRegister, {headers: this.headers})
       .toPromise()
       .then(response => {
         // console.dir(response.json);
