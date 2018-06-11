@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       console.log(user);
       if(user.status != 401 ){
             // this.sessionStorageService.setToken(res.token);
-            this.router.navigate(['/streamlist'], {relativeTo: this.route});
+            this.router.navigate(['/stream-list'], {relativeTo: this.route});
         } else {
 
       }

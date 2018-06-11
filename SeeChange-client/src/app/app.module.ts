@@ -17,6 +17,9 @@ import {SessionStorageService} from "./services/sessionstorage.service";
 import {userLoginService} from "./services/userlogin.service";
 import {HttpModule} from "@angular/http";
 import { StreamsComponent } from './streams/streams.component';
+import { StreamlistComponent } from './stream-list/streamlist.component';
+import { StreamItemComponent } from './stream-list/stream-item/stream-item.component';
+import { StreamListComponent } from './stream-list/stream-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { StreamsComponent } from './streams/streams.component';
     HeaderComponent,
     FooterComponent,
     StreamsComponent,
+    StreamlistComponent,
+    StreamItemComponent,
+    StreamListComponent,
   ],
   imports: [
     BrowserModule,
