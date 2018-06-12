@@ -1,27 +1,16 @@
 <div class="wrapper2">
   <h1>Streams</h1>
   <mat-grid-list cols="4" rowHeight="2:1">
-    <!--<mat-grid-tile>1</mat-grid-tile>-->
-    <!--<mat-grid-tile>2</mat-grid-tile>-->
-    <!--<mat-grid-tile>3</mat-grid-tile>-->
-    <!--<mat-grid-tile>4</mat-grid-tile>-->
-    <!--<mat-grid-tile>5</mat-grid-tile>-->
-    <!--<mat-grid-tile>6</mat-grid-tile>-->
-    <!--<mat-grid-tile>7</mat-grid-tile>-->
-    <!--<mat-grid-tile>8</mat-grid-tile>-->
-    <!--<mat-grid-tile>9</mat-grid-tile>-->
-    <!--<mat-grid-tile>10</mat-grid-tile>-->
-    <!--<mat-grid-tile>11</mat-grid-tile>-->
-    <!--<mat-grid-tile>12</mat-grid-tile>-->
-    <!--<mat-grid-tile>13</mat-grid-tile>-->
-    <!--<mat-grid-tile>14</mat-grid-tile>-->
-    <!--<mat-grid-tile>15</mat-grid-tile>-->
 
- <app-stream-item
-   *ngFor="let streamEl of streams; let i = index"
-   [stream]="streamEl"
-   [index]="i">
- </app-stream-item>
+
+ <mat-grid-tile
+   *ngFor="let streamEl of streams; let i = index">
+   <app-stream-item
+     [stream]="streamEl"
+     [index]="i">
+
+   </app-stream-item>
+ </mat-grid-tile>
 
   </mat-grid-list>
 </div>
