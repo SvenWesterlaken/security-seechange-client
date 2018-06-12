@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import * as $ from 'jquery';
+
 
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatMenuModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatGridListModule, MatInputModule,
+  MatMenuModule,
   MatProgressSpinnerModule, MatToolbar,
   MatToolbarModule
 } from '@angular/material';
@@ -42,7 +45,8 @@ import { StreamListComponent } from './stream-list/stream-list.component';
     MatCardModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   providers: [userLoginService, SessionStorageService],
   bootstrap: [AppComponent]
