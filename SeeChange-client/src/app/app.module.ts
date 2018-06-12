@@ -21,6 +21,8 @@ import {userLoginService} from "./services/userlogin.service";
 import {HttpModule} from "@angular/http";
 import { StreamItemComponent } from './stream-list/stream-item/stream-item.component';
 import { StreamListComponent } from './stream-list/stream-list.component';
+import {StreamService} from "./services/stream.service";
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,7 @@ import { StreamListComponent } from './stream-list/stream-list.component';
     MatInputModule,
     MatGridListModule
   ],
-  providers: [userLoginService, SessionStorageService],
+  providers: [userLoginService, SessionStorageService, StreamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
