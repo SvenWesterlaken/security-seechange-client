@@ -7,14 +7,13 @@ html, body{
   width: 100%;
   background-color: antiquewhite;
   overflow-x: hidden;
-  //margin: 0;
   font-family: Roboto, sans-serif;
 }
 
 .footer {
   color: blue;
   bottom: 0;
-  height: 12%;
+  height: 6em;
   width: 100%;
   overflow: hidden;
   align-self: flex-end;
@@ -23,7 +22,11 @@ html, body{
 
 .wrapper {
   min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -6em;
+}
 
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
+.footer, .push {
+  height: 6em;
 }
