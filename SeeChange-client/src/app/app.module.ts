@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import * as $ from 'jquery';
 
 
@@ -22,6 +23,8 @@ import {HttpModule} from "@angular/http";
 import { StreamItemComponent } from './stream-list/stream-item/stream-item.component';
 import { StreamListComponent } from './stream-list/stream-list.component';
 import {StreamService} from "./services/stream.service";
+import {AuthGuard} from "./auth/auth-guard.service";
+import {AuthService} from "./auth/auth.service";
 
 
 @NgModule({
@@ -50,7 +53,7 @@ import {StreamService} from "./services/stream.service";
     MatInputModule,
     MatGridListModule
   ],
-  providers: [userLoginService, SessionStorageService, StreamService],
+  providers: [userLoginService, SessionStorageService, StreamService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

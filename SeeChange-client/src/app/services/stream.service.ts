@@ -45,5 +45,4 @@ export class StreamService{
     this.streams = [this.stream1, this.stream2, this.stream3, this.stream4, this.stream5];
     return this.streams;
   }
-
 }

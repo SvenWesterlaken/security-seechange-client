@@ -1,8 +1,10 @@
-export class Userloginregister {
+export class Userlogin {
 
   private id: string;
   private _name: string;
   private _password: string;
+
+
 
   constructor(values: Object = {}) {
     Object.assign(this, values);
@@ -30,4 +32,5 @@ export class Userloginregister {
   public set password(p: string) {
     this._password = p;
   }
+
 }
