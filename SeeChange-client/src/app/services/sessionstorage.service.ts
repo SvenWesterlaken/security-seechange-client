@@ -28,13 +28,13 @@ export class SessionStorageService {
     return localStorage.token;
   }
 
-  setUserId(name: string) {
-    this.getLoggedInUser(name).then(res => {
-        localStorage.setItem('userid', res._id);
-        console.log(localStorage.userid);
-      }
-    );
-  }
+  // setUserId(name: string) {
+  //   this.getLoggedInUser(name).then(res => {
+  //       localStorage.setItem('userid', res._id);
+  //       console.log(localStorage.userid);
+  //     }
+  //   );
+  // }
 
   getUserId() {
     return localStorage.userid;
@@ -45,17 +45,17 @@ export class SessionStorageService {
     return headers = new Headers({'token': this.getToken()});
   }
 
-  getLoggedInUser(name: string) {
-    console.log('getloggednuser called');
-    return this.http.get(this.serverUrl + 'name/' + name, {headers: this.getheaders()})
-      .toPromise()
-      .then(response => {
-        return response.json() as User;
-      })
-      .catch(error => {
-        return this.handleError(error);
-      });
-  }
+  // getLoggedInUser(name: string) {
+  //   console.log('getloggednuser called');
+  //   return this.http.get(this.serverUrl + 'name/' + name, {headers: this.getheaders()})
+  //     .toPromise()
+  //     .then(response => {
+  //       return response.json() as User;
+  //     })
+  //     .catch(error => {
+  //       return this.handleError(error);
+  //     });
+  // }
 
   private handleError(error: any): Promise<any> {
     console.log('handleError');

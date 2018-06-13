@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
             this.errorMsg = "Gebruikersnaam of wachtwoord onjuist.";
           }
       });
-    this.sessionStorageService.setUserId(this.loginUserForm.value.name);
+    // this.sessionStorageService.setUserId(this.loginUserForm.value.name);
     // this.sessionStorageService.setUserId(this.loginUserForm.value.name);
 
   }
