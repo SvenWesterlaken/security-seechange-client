@@ -45,4 +45,24 @@ export class StreamService{
     this.streams = [this.stream1, this.stream2, this.stream3, this.stream4, this.stream5];
     return this.streams;
   }
+
+  // getStream() {
+    getStream(index: number) {
+      // if (index == null) {
+    //   console.log('index is null');
+    //   return null;
+    // }
+    // return this.http.get(this.serverUrl + index, {headers: this.headers})
+    //   .toPromise()
+    //   .then(response => {
+    //     console.log('post service');
+    //     console.dir(response);
+    //     return response.json()[0] as Stream;
+    //   })
+    //   .catch(error => {
+    //     return this.handleError(error);
+    //   });
+
+    return this.stream1;
+  }
 }

@@ -23,11 +23,11 @@ export class StreamItemComponent implements OnInit {
 
   ngOnInit() {
     this.index = this.stream._id;
-
   }
 
   onSelected() {
-    this.streamSelected.emit();
+    // this.streamSelected.emit();
+    this.router.navigate(['stream/' + this.stream._id]);
   }
 
 }

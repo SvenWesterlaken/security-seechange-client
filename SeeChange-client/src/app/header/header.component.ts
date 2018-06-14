@@ -23,4 +23,10 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  toStreamTest(){
+    this.router.navigate(['/stream']);
+
+  }
+
+
 }

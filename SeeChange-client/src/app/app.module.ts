@@ -25,6 +25,7 @@ import { StreamListComponent } from './stream-list/stream-list.component';
 import {StreamService} from "./services/stream.service";
 import {AuthGuard} from "./auth/auth-guard.service";
 import {AuthService} from "./auth/auth.service";
+import { StreamDetailComponent } from './stream-detail/stream-detail.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {AuthService} from "./auth/auth.service";
     FooterComponent,
     StreamItemComponent,
     StreamListComponent,
+    StreamDetailComponent,
   ],
   imports: [
     BrowserModule,
