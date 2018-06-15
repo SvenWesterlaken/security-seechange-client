@@ -1,0 +1,197 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$customRed: (
+  50: #fceae7,
+  100: #f9cbc2,
+  200: #f5a899,
+  300: #f08570,
+  400: #ed6a52,
+  500: #ea5033,
+  600: #e7492e,
+  700: #e44027,
+  800: #e13720,
+  900: #db2714,
+  A100: #ffffff,
+  A200: #ffdbd8,
+  A400: #ffaca5,
+  A700: #ff948b,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  )
+);
+
+$customPurple: (
+  50: #e8e0e7,
+  100: #c6b3c4,
+  200: #a1809c,
+  300: #7b4d74,
+  400: #5e2657,
+  500: #420039,
+  600: #3c0033,
+  700: #33002c,
+  800: #2b0024,
+  900: #1d0017,
+  A100: #ff5bcf,
+  A200: #ff28c0,
+  A400: #f400ac,
+  A700: #da009a,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  )
+);
+
+$customBlack: (
+  50: #e7e7e7,
+  100: #c3c3c2,
+  200: #9b9b9a,
+  300: #727272,
+  400: #545453,
+  500: #363635,
+  600: #303030,
+  700: #292928,
+  800: #222222,
+  900: #161616,
+  A100: #ef6f6f,
+  A200: #ea4141,
+  A400: #f80000,
+  A700: #df0000,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  )
+);
+
+$customBeige: (
+  50: #fdfdfc,
+  100: #fafaf7,
+  200: #f7f7f2,
+  300: #f4f4ec,
+  400: #f1f1e8,
+  500: #efefe4,
+  600: #edede1,
+  700: #ebebdd,
+  800: #e8e8d9,
+  900: #e4e4d1,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  )
+);
+
+$customWhite: (
+  50: #fefefe,
+  100: #fdfcfb,
+  200: #fbfaf9,
+  300: #f9f7f7,
+  400: #f8f6f5,
+  500: #f7f4f3,
+  600: #f6f3f1,
+  700: #f5f1ef,
+  800: #f3efed,
+  900: #f1ecea,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  )
+);
+
+//$my-dark-theme-background:(
+//background: #fdfdfc
+//);
+//
+//$my-dark-theme-foreground: (
+//base: #fefefe
+//);
+//
+//@function create-wonky-theme($customRed, $customPurple, $customBlack) {
+//  @return (
+//    primary: $customRed,
+//    accent: $customPurple,
+//    warn: $customBlack,
+//    is-dark: false,
+//    foreground: $my-dark-theme-foreground,
+//    background: $my-dark-theme-background,
+//  );
+//}
+
+$my-theme-primary: mat-palette($customRed);
+$my-theme-accent:  mat-palette($customPurple);
+$my-theme-warn:    mat-palette($customBlack);
+
+//$my-theme: create-wonky-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+$my-theme:   mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+@include angular-material-theme($my-theme);
+
