@@ -4,7 +4,8 @@
 
 export const environment = {
   production: true,
-  nodeServerUrl: 'http://localhost:3000/api/v1/'
+  nodeServerUrl: 'http://localhost:3000/api/v1/',
+  streamServerUrl:  'http://localhost:8000/api/streams/'
 };
 
 /*

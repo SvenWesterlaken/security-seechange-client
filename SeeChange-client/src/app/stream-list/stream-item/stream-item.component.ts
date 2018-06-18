@@ -12,7 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class StreamItemComponent implements OnInit {
   @Input() stream: Stream;
-  @Input() index: number;
+  @Input() index: string;
   @Output() streamSelected = new EventEmitter<void>();
 
   constructor(private route: ActivatedRoute,
@@ -22,12 +22,12 @@ export class StreamItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.index = this.stream._id;
+    this.index = this.stream.streamName;
   }
 
   onSelected() {
     // this.streamSelected.emit();
-    this.router.navigate(['stream/' + this.stream._id]);
+    this.router.navigate(['stream/' + this.stream.streamName]);
   }
 
 }

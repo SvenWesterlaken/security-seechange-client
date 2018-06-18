@@ -1,18 +1,30 @@
 export class Stream {
 
-  private id: number;
+  private id: string;
+  private _connectedOn: Date;
+  private _duration: number;
+  private _viewers: number;
 
   // private _user: User;
   constructor(values: Object = {}) {
     Object.assign(this, values);
   }
 
-  public get _id(): number {
+  public get streamName(): string {
     return this.id;
   }
 
-  public set _id(n: number) {
-    this.id = n;
+  public get duration(): number {
+    return (this._duration / 60);
   }
+
+  public get connectedOn(): Date{
+    return this._connectedOn;
+  }
+
+  public get viewers(): number {
+    return this._viewers;
+  }
+//
 
 }

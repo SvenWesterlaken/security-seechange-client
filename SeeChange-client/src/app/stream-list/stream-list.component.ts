@@ -17,7 +17,19 @@ export class StreamListComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.streams = this.streamService.getStreams();
-  }
+    this.subscription = this.streamService.streamChanged
+      .subscribe(
+        (streams: Stream[]) => {
+          this.streamService.getStreams()
+            .then(res => {
+              this.streams = res;
+            });
+        }
+      );
+    this.streamService.getStreams().then(res => {
+      this.streams = Object.values(res);
+      console.log("streams>");
+      console.dir(this.streams);
+    });  }
 
 }

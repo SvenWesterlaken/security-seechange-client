@@ -1,28 +1,38 @@
-.container{
-  margin:0;
-  padding:0;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+#stream{
+  //background-color: none;
+  height: 60vh;
+}
+
+#chat{
+  background-color: lightgrey;
+  height: 70vh;
 }
 
 .row{
-  padding: 0;
-  margin: 0;
+  //height: 60vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 
-.stream{
-  height: 80%;
-  width: 100%;
-  background-color: blue;
-  display: block;
-}
-
-.chat{
-  height: 80%;
-}
-
-.full{
-  width: 100%;
+#streamData{
   height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+.fa-eye{
+  margin-left: 1%;
+}
+
+.viewers{
+  font-size: 18px;
+  margin-top: 4px;
+  margin-left: 5px;
+  margin-bot: auto;
+}
+
+.data-row{
+  margin-bottom: auto;
+  margin-top: auto;
 }
