@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subscription} from "rxjs/Rx";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {StreamService} from "../services/stream.service";
@@ -10,21 +10,26 @@ import * as flvjs from "./flv.js";
   templateUrl: './stream-detail.component.html',
   styleUrls: ['./stream-detail.component.scss']
 })
-export class StreamDetailComponent implements OnInit {
-  
+export class StreamDetailComponent implements OnInit, AfterViewInit {
+
   @Input() id: string;
   @Output() private commentSelected = new EventEmitter<void>();
   private subscription: Subscription;
   private player: flvjs;
-  
+
   @Input() stream: Stream;
-  
+
   constructor(private streamService: StreamService,
               private route: ActivatedRoute,
               private router: Router) {
   }
-  
+
+  ngAfterViewInit() {
+this.load_data()
+  }
+
   ngOnInit() {
+
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -35,7 +40,7 @@ export class StreamDetailComponent implements OnInit {
             console.dir(this.stream);
           })
         });
-    
+
     // this.subscription = this.streamService.streamChanged
     //   .subscribe(
     //     (stream: Stream) => {
@@ -46,15 +51,15 @@ export class StreamDetailComponent implements OnInit {
     //     }
     //   );
   }
-  
+
   load_data() {
-    console.log('Load');
-    
+    console.log('Load' + ' http://localhost:8000/live/' + this.id + ".flv");
+
     console.log("IsSupported: " + flvjs.isSupported());
     let element = document.getElementsByName('videoElement')[0];
     this.player = flvjs.createPlayer({
       type: 'flv',
-      url: 'http://localhost:8000/live/test2.flv'
+      url: 'http://localhost:8000/live/' + this.id + ".flv"
     }, {
       enableWorker: false,
       lazyLoadMaxDuration: 3 * 60,
