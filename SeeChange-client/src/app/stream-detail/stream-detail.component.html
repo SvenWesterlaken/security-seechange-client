@@ -1,14 +1,46 @@
-
 <div class="row h-100">
   <div class="col-9" id="stream">
     <h1>{{id}}</h1>
-    <div id="streamData"></div>
+    <div id="streamData">
+      <video name="videoElement" class="centeredVideo" controls autoplay width="1024" height="576">
+        Your browser is too old which doesn't support HTML5 video.
+      </video>
+    </div>
     <div class="data-row">
       <i class="far fa-eye fa-2x float-left"></i>
       <p class="float-left viewers">{{stream.viewers}}</p>
+      <button (click)="load_data()">Load</button>
     </div>
   </div>
   <div class="col-3" id="chat">lekkerChat</div>
 </div>
+
+<script src="flv.js"></script>
+<script>
+  function flv_load() {
+    console.log('isSupported: ' + flvjs.isSupported());
+    //var urlinput = document.getElementsByName('urlinput')[0];
+    
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+      if (player != null) {
+        player.unload();
+        player.detachMediaElement();
+        player.destroy();
+        player = null;
+      }
+    }
+    player = flvjs.createPlayer({
+      type: 'flv',
+      url: 'http://localhost:8000/live/test.flv'
+    }, {
+      enableWorker: false,
+      lazyLoadMaxDuration: 3 * 60,
+      seekType: 'range',
+    });
+    player.attachMediaElement(element);
+    player.load();
+  }
+</script>
 
 <!--<p style="height: 60vh; background-color: navajowhite">hoii</p>-->
