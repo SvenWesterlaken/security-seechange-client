@@ -11,25 +11,25 @@ import * as flvjs from "./flv.js";
   styleUrls: ['./stream-detail.component.scss']
 })
 export class StreamDetailComponent implements OnInit, AfterViewInit {
-
+  
   @Input() id: string;
   @Output() private commentSelected = new EventEmitter<void>();
   private subscription: Subscription;
   private player: flvjs;
-
+  private nickname: string = "";
+  
   @Input() stream: Stream;
-
+  
   constructor(private streamService: StreamService,
               private route: ActivatedRoute,
               private router: Router) {
   }
-
+  
   ngAfterViewInit() {
-this.load_data()
+    this.load_data()
   }
-
+  
   ngOnInit() {
-
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -38,9 +38,11 @@ this.load_data()
             this.stream = res;
             console.log("enkele streama");
             console.dir(this.stream);
+            
+            this.nickname = params['id'];
           })
         });
-
+    
     // this.subscription = this.streamService.streamChanged
     //   .subscribe(
     //     (stream: Stream) => {
@@ -51,10 +53,14 @@ this.load_data()
     //     }
     //   );
   }
-
+  
+  getNickname() {
+    return this.nickname;
+  }
+  
   load_data() {
     console.log('Load' + ' http://localhost:8000/live/' + this.id + ".flv");
-
+    
     console.log("IsSupported: " + flvjs.isSupported());
     let element = document.getElementsByName('videoElement')[0];
     this.player = flvjs.createPlayer({
@@ -67,5 +73,16 @@ this.load_data()
     });
     this.player.attachMediaElement(element);
     this.player.load();
+    
+    this.streamService.getNickname(this.id).then(res => {
+      console.log(res);
+      if (res.publicName == null) {
+        this.nickname = this.id;
+      } else {
+        this.nickname = res.publicName;
+      }
+  
+      console.log("Nickname: " + this.nickname);
+    });
   }
 }
