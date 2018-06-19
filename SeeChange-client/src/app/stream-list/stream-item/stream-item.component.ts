@@ -14,6 +14,7 @@ export class StreamItemComponent implements OnInit {
   @Input() stream: Stream;
   @Input() index: string;
   @Output() streamSelected = new EventEmitter<void>();
+  @Input() duration : number = 0;
 
   constructor(private route: ActivatedRoute,
               private streamService: StreamService,
@@ -21,8 +22,10 @@ export class StreamItemComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
     this.index = this.stream.streamName;
+    this.duration = Math.round(this.stream.duration / 60);
   }
 
   onSelected() {

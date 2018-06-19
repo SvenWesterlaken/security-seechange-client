@@ -2,15 +2,21 @@
   <h1>Streams</h1>
   <mat-grid-list cols="4" rowHeight="2:1">
 
-
+<div *ngIf="streams.length != 0">
  <mat-grid-tile
+
    *ngFor="let streamEl of streams; let i = index">
+   <div (click)="onSelected(streamEl.streamName)" class="click">
    <app-stream-item
      [stream]="streamEl"
      [index]="i">
 
    </app-stream-item>
+   </div>
  </mat-grid-tile>
-
+</div>
+    <h2 *ngIf="streams.length == 0">
+      There are no streams live.
+    </h2>
   </mat-grid-list>
 </div>

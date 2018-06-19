@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from "rxjs/index";
 import {StreamService} from "../services/stream.service";
 import {Stream} from "../models/stream.model";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-stream-list',
@@ -10,26 +11,36 @@ import {Stream} from "../models/stream.model";
 })
 export class StreamListComponent implements OnInit {
 
-  streams: Stream[];
+  @Input() streams: Stream[] = [];
   private subscription: Subscription;
 
-  constructor(private streamService: StreamService) {
+  constructor(private streamService: StreamService,
+              private route: ActivatedRoute,
+              private router: Router) {
 
   }
   ngOnInit() {
     this.subscription = this.streamService.streamChanged
       .subscribe(
         (streams: Stream[]) => {
-          this.streamService.getStreams()
-            .then(res => {
-              this.streams = res;
-            });
+          if (streams.length != 0){
+            this.streamService.getStreams()
+              .then(res => {
+                this.streams = res;
+              });
+        }
         }
       );
     this.streamService.getStreams().then(res => {
+      if (res.length != 0) {
       this.streams = Object.values(res);
       console.log("streams>");
       console.dir(this.streams);
+    }
     });  }
 
+  onSelected(id: string) {
+    // this.streamSelected.emit();
+    this.router.navigate(['stream/' + id]);
+  }
 }

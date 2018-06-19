@@ -33,14 +33,12 @@ export class StreamService{
 
   getStream(index: string) {
     if (index == null) {
-      console.log('null');
+      console.log('index is null');
       return null;
     }
     return this.http.get(this.serverUrl + "live/" + index, {headers: this.headers})
       .toPromise()
       .then(response => {
-        console.log('post service');
-        console.dir(response);
         return response.json().data as Stream;
       })
       .catch(error => {

@@ -22,6 +22,10 @@ export class StreamDetailComponent implements OnInit, AfterViewInit {
   constructor(private streamService: StreamService,
               private route: ActivatedRoute,
               private router: Router) {
+      this.route.queryParams.subscribe(params => {
+        this.id = params['id'];
+      });
+
   }
 
   ngAfterViewInit() {
@@ -29,15 +33,18 @@ this.load_data()
   }
 
   ngOnInit() {
+    // this.streamService.getStream(this.id).then(res => {
+    //     this.stream = res;
+    // });
 
     this.route.params
       .subscribe(
         (params: Params) => {
           this.id = params['id'];
           this.streamService.getStream(this.id).then(res => {
+            console.log("res is binnen" + res);
+            console.dir(res);
             this.stream = res;
-            console.log("enkele streama");
-            console.dir(this.stream);
           })
         });
 
