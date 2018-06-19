@@ -26,6 +26,7 @@ import {StreamService} from "./services/stream.service";
 import {AuthGuard} from "./auth/auth-guard.service";
 import {AuthService} from "./auth/auth.service";
 import { StreamDetailComponent } from './stream-detail/stream-detail.component';
+import {ImageCropperModule} from "ngx-image-cropper";
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { StreamDetailComponent } from './stream-detail/stream-detail.component';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    ImageCropperModule
   ],
   providers: [userLoginService, SessionStorageService, StreamService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
