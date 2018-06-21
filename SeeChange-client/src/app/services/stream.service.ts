@@ -14,11 +14,11 @@ export class StreamService {
   private apiUrl = environment.nodeServerUrl;
   private serverApiUrl = environment.seechangeApiUrl;
   private streams: Stream[];
-  
+
   constructor(private http: Http) {
-  
+
   }
-  
+
   getStreams() {
     console.log('Fetching streams from database.')
     return this.http.get(this.serverUrl, {headers: this.headers})
@@ -30,9 +30,9 @@ export class StreamService {
       .catch(error => {
         return error;
       });
-    
+
   }
-  
+
   getStream(index: string) {
     if (index == null) {
       console.log('index is null');
@@ -47,13 +47,11 @@ export class StreamService {
         return error;
       });
   }
-  
   getNickname(username: string) {
     if (username == null) {
       console.log('null');
       return null;
     }
-    
     return this.http.get(this.serverApiUrl + "user/info/?username=" + username, {headers: this.headers})
       .toPromise()
       .then(response => {
@@ -64,5 +62,4 @@ export class StreamService {
         return error;
       });
   }
-  
 }

@@ -1,15 +1,10 @@
 <mat-toolbar color="primary">
   <i id=headerlogo class="fas fa-circle-notch fa-3x" routerLink="/stream-list" ></i>
 
-  <!--<div id="headermenuspace">-->
   <button mat-button id="headermenu" [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Home</button>
-    <button mat-menu-item>My account</button>
-    <button mat-menu-item>Funding</button>
-    <button mat-menu-item (click)="toStreamTest()">Setting</button>
+    <button mat-menu-item (click)="toStreamTest()">Home</button>
     <button mat-menu-item (click)="clearStorage()">Logout</button>
 
   </mat-menu>
-  <!--</div>-->
 </mat-toolbar>

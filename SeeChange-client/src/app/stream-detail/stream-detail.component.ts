@@ -1,9 +1,11 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Subscription} from "rxjs/Rx";
+import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Observable, Subscription} from "rxjs/Rx";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {StreamService} from "../services/stream.service";
 import {Stream} from "../models/stream.model";
 import * as flvjs from "./flv.js";
+// import { Socket } from 'ngx-socket-io';
+
 
 @Component({
   selector: 'app-stream-detail',
@@ -11,36 +13,65 @@ import * as flvjs from "./flv.js";
   styleUrls: ['./stream-detail.component.scss']
 })
 export class StreamDetailComponent implements OnInit, AfterViewInit {
-  
+
+export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
+
   @Input() id: string;
   @Output() private commentSelected = new EventEmitter<void>();
   private subscription: Subscription;
   private player: flvjs;
   private nickname: string = "";
-  
+
+  loadedStreams: number = 0;
+  private nickname: string = "";
+
+
   @Input() stream: Stream;
-  
+
   constructor(private streamService: StreamService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,) {
       this.route.queryParams.subscribe(params => {
         this.id = params['id'];
       });
 
+    Observable.interval(1000 * 60).subscribe(x => {
+      this.route.params
+        .subscribe(
+          (params: Params) => {
+            this.id = params['id'];
+            this.streamService.getStream(this.id).then(res => {
+              console.log("res is binnen" + res);
+              console.dir(res);
+              this.stream = res;
+            })
+          });
+    });
+
   }
-  
+
   ngAfterViewInit() {
     this.load_data()
   }
-  
+
   ngOnInit() {
-<<<<<<< HEAD
-=======
     // this.streamService.getStream(this.id).then(res => {
     //     this.stream = res;
     // });
+    if(this.loadedStreams < 4) {
+      this.load_data()
+      this.loadedStreams++;
+      console.log("streams watching: " + this.loadedStreams);
+    }else{
+      alert("You can only watch 4 streams at the same time.")
+    }
+  }
 
->>>>>>> 573010756dfada46071b98b31c631cd73bfa0508
+  ngOnDestroy(): void {
+    console.log("streams watching: " + this.loadedStreams);
+  }
+
+  ngOnInit() {
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -49,16 +80,13 @@ export class StreamDetailComponent implements OnInit, AfterViewInit {
             console.log("res is binnen" + res);
             console.dir(res);
             this.stream = res;
-<<<<<<< HEAD
             console.log("enkele streama");
             console.dir(this.stream);
-            
+
             this.nickname = params['id'];
-=======
->>>>>>> 573010756dfada46071b98b31c631cd73bfa0508
           })
         });
-    
+
     // this.subscription = this.streamService.streamChanged
     //   .subscribe(
     //     (stream: Stream) => {
@@ -69,19 +97,21 @@ export class StreamDetailComponent implements OnInit, AfterViewInit {
     //     }
     //   );
   }
-  
+
   getNickname() {
     return this.nickname;
   }
-  
+
+  }
+
   load_data() {
     console.log('Load' + ' http://localhost:8000/live/' + this.id + ".flv");
-    
+
     console.log("IsSupported: " + flvjs.isSupported());
     let element = document.getElementsByName('videoElement')[0];
     this.player = flvjs.createPlayer({
       type: 'flv',
-      url: 'http://localhost:8000/live/' + this.id + ".flv"
+      url: 'http://145.49.18.217:8000/live/' + this.id + ".flv"
     }, {
       enableWorker: false,
       lazyLoadMaxDuration: 3 * 60,
@@ -89,7 +119,7 @@ export class StreamDetailComponent implements OnInit, AfterViewInit {
     });
     this.player.attachMediaElement(element);
     this.player.load();
-    
+
     this.streamService.getNickname(this.id).then(res => {
       console.log(res);
       if (res.publicName == null) {
@@ -97,7 +127,7 @@ export class StreamDetailComponent implements OnInit, AfterViewInit {
       } else {
         this.nickname = res.publicName;
       }
-  
+
       console.log("Nickname: " + this.nickname);
     });
   }
