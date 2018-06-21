@@ -19,6 +19,7 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   private subscription: Subscription;
   private player: flvjs;
   loadedStreams: number = 0;
+  private nickname: string = "";
 
 
   @Input() stream: Stream;
@@ -80,7 +81,7 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     let element = document.getElementsByName('videoElement')[0];
     this.player = flvjs.createPlayer({
       type: 'flv',
-      url: 'http://localhost:8000/live/' + this.id + ".flv"
+      url: 'http://145.49.18.217:8000/live/' + this.id + ".flv"
     }, {
       enableWorker: false,
       lazyLoadMaxDuration: 3 * 60,
@@ -88,5 +89,15 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     this.player.attachMediaElement(element);
     this.player.load();
+
+    this.streamService.getNickname(this.id).then(res => {
+      console.log(res);
+      if (res.publicName == null) {
+        this.nickname = this.id;
+      } else {
+        this.nickname = res.publicName;
+      }
+      console.log("Nickname: " + this.nickname);
+    });
   }
 }

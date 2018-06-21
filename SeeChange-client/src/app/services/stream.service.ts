@@ -11,6 +11,7 @@ export class StreamService{
   streamChanged = new Subject<Stream[]>();
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.streamServerUrl;
+  private serverApiUrl = environment.seechangeApiUrl;
   private streams: Stream[];
 
   constructor(private http: Http) {
@@ -40,6 +41,23 @@ export class StreamService{
       .toPromise()
       .then(response => {
         return response.json().data as Stream;
+      })
+      .catch(error => {
+        return error;
+      });
+  }
+
+  getNickname(username: string) {
+    if (username == null) {
+      console.log('null');
+      return null;
+    }
+
+    return this.http.get(this.serverApiUrl + "user/info/?username=" + username, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response);
+        return response.json();
       })
       .catch(error => {
         return error;

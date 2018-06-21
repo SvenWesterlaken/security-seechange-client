@@ -22,7 +22,7 @@ export class StreamListComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.streamService.streamChanged
       .subscribe(
-        (streams: Stream[]) => {
+        (streams: Stream[] = []) => {
           if (streams.length != 0){
             this.streamService.getStreams()
               .then(res => {
