@@ -60,10 +60,6 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.streamService.getStream(this.id).then(res => {
-    //     this.stream = res;
-    // });
-
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -74,19 +70,8 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
             this.stream = res;
           })
         });
-
-    // this.subscription = this.streamService.streamChanged
-    //   .subscribe(
-    //     (stream: Stream) => {
-    //       this.streamService.getStream(this.stream.streamName).then(res => {
-    //         console.log('log de user' + res.user);
-    //         this.stream = res;
-    //       })
-    //     }
-    //   );
   }
 
- // 60 * 1000 milsec
 
   load_data() {
     console.log('Load' + ' http://localhost:8000/live/' + this.id + ".flv");
@@ -104,9 +89,4 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     this.player.attachMediaElement(element);
     this.player.load();
   }
-
-
-
-
-
 }

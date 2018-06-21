@@ -40,7 +40,6 @@ export class StreamListComponent implements OnInit {
     });  }
 
   onSelected(id: string) {
-    // this.streamSelected.emit();
     this.router.navigate(['stream/' + id]);
   }
 }

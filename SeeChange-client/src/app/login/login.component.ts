@@ -25,16 +25,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.userLoginService.loginUser(this.loginUserForm.value).then((user) => {
-    //   console.log(user);
-    //   if(user.status != 401 ){
-    //         // this.sessionStorageService.setToken(res.token);
-    //         this.router.navigate(['/stream-list'], {relativeTo: this.route});
-    //     } else {
-    //     this.errorMsg = "Gebruikersnaam of wachtwoord onjuist.";
-    //   }
-    // });
-
     this.userLoginService.loginUser(this.loginUserForm.value)
       .then((res) => {
         console.dir(res);
@@ -46,9 +36,6 @@ export class LoginComponent implements OnInit {
             this.errorMsg = "Gebruikersnaam of wachtwoord onjuist.";
           }
       });
-    // this.sessionStorageService.setUserId(this.loginUserForm.value.name);
-    // this.sessionStorageService.setUserId(this.loginUserForm.value.name);
-
   }
 
   private initForm() {
