@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import * as $ from 'jquery';
+// import * as crypto from 'crypto';
 
+
+// import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+// const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatGridListModule, MatInputModule,
