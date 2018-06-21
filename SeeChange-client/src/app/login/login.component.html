@@ -1,30 +1,33 @@
 <div class="loginform">
-<mat-card class="example-card">
-  <i id=headerlogo class="fas fa-circle-notch fa-8x autoSpace"></i>
+  <mat-card class="example-card">
+    <!--<mat-card-header>-->
+    <!--<mat-card-title class="autoSpace">Login</mat-card-title>-->
+    <!--</mat-card-header>-->
+    <i id=headerlogo class="fas fa-circle-notch fa-8x autoSpace"></i>
 
-  <mat-card-content class="">
-    <form [formGroup]="loginUserForm" (ngSubmit)="onSubmit()" class="">
-      <table class="example-full-width tabel" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="long">
-              <input matInput placeholder="Username" formControlName="username" name="username" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td><mat-form-field class="long " id="password" >
-            <input type="password" matInput  placeholder="Password"  name="password" formControlName="password" required>
-          </mat-form-field></td>
-        </tr>
-      </table>
-      <p class="errorMessage" style="color:red; font-size: 14px;">{{errorMsg}}</p>
-      <mat-card-actions id="formbutton">
-        <button mat-raised-button type="submit" [disabled]="" color="primary">Login</button>
-      </mat-card-actions>
-    </form>
-    <mat-progress-spinner  [style.display]="'block'"></mat-progress-spinner>
-  </mat-card-content>
+    <mat-card-content>
+      <form [formGroup]="loginUserForm" (ngSubmit)="onSubmit()" class="">
+        <table class="example-full-width tabel" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="gewoonlang">
+                <input matInput placeholder="Username" formControlName="username" name="username" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td><mat-form-field class="gewoonlang " id="password" >
+              <input type="password" matInput  placeholder="Password"  name="password" formControlName="password" required>
+            </mat-form-field></td>
+          </tr>
+        </table>
+        <p class="errorMessage" style="color:red; font-size: 14px;">{{errorMsg}}</p>
+        <mat-card-actions id="formbutton">
+          <button mat-raised-button type="submit" [disabled]="" color="accent">Login</button>
+        </mat-card-actions>
+      </form>
+      <mat-progress-spinner  [style.display]="'block'"></mat-progress-spinner>
+    </mat-card-content>
 
-</mat-card>
+  </mat-card>
 </div>

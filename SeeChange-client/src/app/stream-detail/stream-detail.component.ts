@@ -6,22 +6,17 @@ import {Stream} from "../models/stream.model";
 import * as flvjs from "./flv.js";
 // import { Socket } from 'ngx-socket-io';
 
-
 @Component({
   selector: 'app-stream-detail',
   templateUrl: './stream-detail.component.html',
   styleUrls: ['./stream-detail.component.scss']
 })
-export class StreamDetailComponent implements OnInit, AfterViewInit {
-
 export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() id: string;
   @Output() private commentSelected = new EventEmitter<void>();
   private subscription: Subscription;
   private player: flvjs;
-  private nickname: string = "";
-
   loadedStreams: number = 0;
   private nickname: string = "";
 
@@ -31,9 +26,9 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private streamService: StreamService,
               private route: ActivatedRoute,
               private router: Router,) {
-      this.route.queryParams.subscribe(params => {
-        this.id = params['id'];
-      });
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+    });
 
     Observable.interval(1000 * 60).subscribe(x => {
       this.route.params
@@ -51,13 +46,6 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.load_data()
-  }
-
-  ngOnInit() {
-    // this.streamService.getStream(this.id).then(res => {
-    //     this.stream = res;
-    // });
     if(this.loadedStreams < 4) {
       this.load_data()
       this.loadedStreams++;
@@ -80,29 +68,10 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log("res is binnen" + res);
             console.dir(res);
             this.stream = res;
-            console.log("enkele streama");
-            console.dir(this.stream);
-
-            this.nickname = params['id'];
           })
         });
-
-    // this.subscription = this.streamService.streamChanged
-    //   .subscribe(
-    //     (stream: Stream) => {
-    //       this.streamService.getStream(this.stream.streamName).then(res => {
-    //         console.log('log de user' + res.user);
-    //         this.stream = res;
-    //       })
-    //     }
-    //   );
   }
 
-  getNickname() {
-    return this.nickname;
-  }
-
-  }
 
   load_data() {
     console.log('Load' + ' http://localhost:8000/live/' + this.id + ".flv");
@@ -127,7 +96,6 @@ export class StreamDetailComponent implements OnInit, AfterViewInit, OnDestroy {
       } else {
         this.nickname = res.publicName;
       }
-
       console.log("Nickname: " + this.nickname);
     });
   }
