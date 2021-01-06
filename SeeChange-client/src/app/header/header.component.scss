@@ -1,0 +1,29 @@
+mat-toolbar{
+  padding: 0;
+  margin:0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  display: inline-block ;
+}
+
+#headerlogo{
+  margin-left:3%;
+  margin-top: 9px;
+}
+#headerlogo:hover{
+  cursor: pointer;
+}
+
+#headermenuspace{
+  //height: 100%;
+}
+
+#headermenu{
+  float: right;
+  margin-right: 5%;
+  margin-top:20px;
+  //margin-top:10%;
+  //margin-bottom: auto;
+}
+

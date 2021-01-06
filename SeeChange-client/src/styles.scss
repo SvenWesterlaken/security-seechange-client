@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+html, body{
+  height: 100%;
+  width: 100%;
+  background-color: #efefe4;
+  overflow-x: hidden;
+  font-family: Roboto, sans-serif;
+
+
+
+}
+
+.footer {
+  //color: blue;
+  bottom: 0;
+  height: 6em;
+  width: 100%;
+  overflow: hidden;
+  align-self: flex-end;
+
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -6em;
+}
+
+.footer, .push {
+  height: 6em;
+}

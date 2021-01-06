@@ -1,0 +1,65 @@
+//.example-icon {
+//  padding: 0 14px;
+//}
+//
+//.example-spacer {
+//  flex: 1 1 auto;
+//}
+
+mat-card{
+  background: #fefefe;
+}
+.loginform{
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: auto;
+  display: block;
+}
+
+.autoSpace{
+  position: relative;
+  display: block;
+  width: auto;
+  //margin-left: auto;
+  //margin-right: auto;
+  text-align: center;
+}
+
+#headerlogo{
+  margin-bottom: 10%;
+}
+
+#username{
+  width: 100%;
+}
+
+mat-card-content{
+  margin-left: 0%;
+}
+
+#password{
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+#formbutton{
+  margin-top: 10%;
+  text-align: center;
+}
+
+.gewoonlang{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.tabel{
+  //margin:auto;
+  width:100%;
+}
+
+.errorMessage{
+  text-align: center;
+}
