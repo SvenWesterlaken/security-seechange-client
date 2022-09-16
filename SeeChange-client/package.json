@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "angular2-jwt": "^0.2.3",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
